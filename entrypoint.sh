@@ -109,6 +109,10 @@ update_config_string "NITTER_PROXY_AUTH" "proxyAuth" ""
 
 # [Preferences]
 update_config_string "NITTER_PREF_THEME" "theme" "Nitter"
+if [ -n "$RENDER_EXTERNAL_HOSTNAME" ]; then
+    NITTER_PREF_REPLACE_TWITTER="$RENDER_EXTERNAL_HOSTNAME"
+    echo "  - Using RENDER_EXTERNAL_HOSTNAME for NITTER_PREF_REPLACE_TWITTER: $NITTER_PREF_REPLACE_TWITTER"
+fi
 update_config_string "NITTER_PREF_REPLACE_TWITTER" "replaceTwitter" "nitter.net"
 update_config_string "NITTER_PREF_REPLACE_YOUTUBE" "replaceYouTube" "piped.video"
 update_config_string "NITTER_PREF_REPLACE_REDDIT" "replaceReddit" "teddit.net"
