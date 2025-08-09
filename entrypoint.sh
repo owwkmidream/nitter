@@ -123,9 +123,6 @@ update_config_boolean "NITTER_PREF_INFINITE_SCROLL" "infiniteScroll" "false"
 echo "Configuration applied. Starting Nitter..."
 
 # --- 处理 sessions.jsonl ---
-# 确保 /src/ 目录及其内容归 'nitter' 用户所有
-# 这样 'nitter' 用户就有权限创建和写入文件
-chown -R nitter:nitter /src/
 # 检查是否存在 NITTER_SESSIONS_JSONL_BASE64 环境变量
 if [ -n "$NITTER_SESSIONS_JSONL_BASE64" ]; then
     echo "  - Decoding and writing sessions.jsonl from environment variable..."
