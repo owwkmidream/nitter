@@ -65,6 +65,11 @@ update_config_number() {
 # --- 应用配置 ---
 
 # [Server]
+# 使用 Render 提供的外部主机名
+if [ -n "$RENDER_EXTERNAL_HOSTNAME" ]; then
+    NITTER_HOSTNAME="$RENDER_EXTERNAL_HOSTNAME"
+    echo "  - Using RENDER_EXTERNAL_HOSTNAME for Nitter hostname: $NITTER_HOSTNAME"
+fi
 update_config_string "NITTER_HOSTNAME" "hostname" "nitter.net"
 update_config_string "NITTER_TITLE" "title" "nitter"
 update_config_string "NITTER_ADDRESS" "address" "0.0.0.0"
