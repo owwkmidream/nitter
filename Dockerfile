@@ -22,4 +22,6 @@ COPY --from=nim /src/nitter/public ./public
 EXPOSE 8080
 RUN adduser -h /src/ -D -s /bin/sh nitter
 USER nitter
-CMD ./nitter
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
+ENTRYPOINT ["./entrypoint.sh"]
